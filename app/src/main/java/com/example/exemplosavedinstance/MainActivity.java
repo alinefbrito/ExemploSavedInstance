@@ -9,18 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private final String VALOR_TEXTO = "com.example.exemplodavedinstance";
     private TextView msg_texto;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         msg_texto = (TextView) findViewById(R.id.txtMsg);
         // Recupera a textview, redundante com o método onRestoreInstanceState para exemplificar
-
         if (savedInstanceState != null) {
-
             msg_texto.setText(savedInstanceState.getString(VALOR_TEXTO));
-
         }
     }
 
@@ -43,16 +39,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startTask(View view) {
-
-        // Adiciona msg a textview
-
+        // Adiciona msg a textview indicando o inicio do processamento
         msg_texto.setText(R.string.napping);
-
-
-        // Start the AsyncTask.
-
-        // The AsyncTask has a callback that will update the text view.
-
+        // Inicia o processo assincrono
+        // To Assincrono tem um callback tque atualiza a textView.
         new SimpleAsyncTask(msg_texto).execute();
 
     }

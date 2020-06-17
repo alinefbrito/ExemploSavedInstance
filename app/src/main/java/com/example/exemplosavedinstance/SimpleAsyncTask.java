@@ -7,16 +7,15 @@ import java.lang.ref.WeakReference;
 import java.util.Random;
 
 public class SimpleAsyncTask extends AsyncTask<Void, Void, String> {
-    // The TextView where we will show results
+    // referencia fraca para a text view que será atualizada
     private WeakReference<TextView> msg_texto;
+    // Construtor faz a referencia a TextView da Main Activity
 
-    // Construto faz referencia a TextView da Main Activity
     SimpleAsyncTask(TextView tv) {
         msg_texto = new WeakReference<>(tv);
-
     }
 
-
+    //metodo que executa as ações em segundo plano
     @Override
     protected String doInBackground(Void... voids) {
         // gera um número aleatório entre a e 10.
